@@ -8,9 +8,11 @@ def track(previousStatus):
         gmail.send(status)
     return status
 
-if __name__ == '__main__':
+def run():
     previousStatus = 'Under Evaluation'
     while True:
         status = track(previousStatus)
         previousStatus = status
         time.sleep(600)
+if __name__ == '__main__':
+    run()
