@@ -1,19 +1,20 @@
-import science
+#!/usr/bin/env python
+import grl as journal
 import gmail
 import time
 
 def track(previousStatus):
-    status = science.getArticleStatus()
+    status = journal.getArticleStatus()
     if status != previousStatus:
-        gmail.send(status)
+        gmail.send(journal.getName(), status)
     return status
 
 def run():
-    previousStatus = 'Under Evaluation'
+    previousStatus = ''
     while True:
         status = track(previousStatus)
         print('[%s] %s' % (time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime()), status))
         previousStatus = status
-        time.sleep(600)
+        time.sleep(30)
 if __name__ == '__main__':
     run()

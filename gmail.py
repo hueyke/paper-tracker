@@ -1,14 +1,16 @@
 #!/usr/bin/env python
 from __future__ import print_function
-import smtplib
 from email.mime.text import MIMEText
+import smtplib
+import auth
 
-def send(status):
-    gmail_user = 'hueyke@gmail.com'
-    gmail_password = 'rmqwaiecdtppcosm'
+
+def send(journal, status):
+    gmail_user = auth.getGmailAddress()
+    gmail_password = auth.getGmailPassword()
     
-    msg = MIMEText('Hi Huey,\n\nScience status changed to \"%s\".\n\nBest,\nHuey' % status)
-    msg['Subject'] = 'Science status changed to \"%s\"!' % status
+    msg = MIMEText('Hi Huey,\n\n%s status changed to \"%s\".\n\nBest,\nHuey' % (journal, status))
+    msg['Subject'] = '%s status changed to \"%s\"!' % (journal, status)
     msg['From'] = gmail_user
     msg['To'] = gmail_user
     
