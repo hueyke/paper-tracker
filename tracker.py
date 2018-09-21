@@ -2,6 +2,8 @@
 import grl as journal
 import gmail
 import time
+from datetime import datetime
+
 
 def track(previousStatus):
     status = journal.getArticleStatus()
@@ -13,7 +15,7 @@ def run():
     previousStatus = ''
     while True:
         status = track(previousStatus)
-        print('[%s] %s' % (time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime()), status))
+        print('[%s] %s' % (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), status))
         previousStatus = status
         time.sleep(30)
 if __name__ == '__main__':
