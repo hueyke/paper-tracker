@@ -26,7 +26,7 @@ def getArticleStatus():
         links = soup.find_all('a')
         manuscript_link = ''
         for link in links:
-            if 'Live Manuscripts' in link.text:
+            if 'Manuscripts (1)' in link.text:
                 manuscript_link = link.attrs['href']
                 break
         res = session.get(domain + manuscript_link)
