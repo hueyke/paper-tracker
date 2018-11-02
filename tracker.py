@@ -14,9 +14,12 @@ def track(previousStatus):
 def run():
     previousStatus = ''
     while True:
-        status = track(previousStatus)
-        print('[%s] %s' % (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), status))
-        previousStatus = status
+        try:
+            status = track(previousStatus)
+            print('[%s] %s' % (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), status))
+            previousStatus = status
+        except:
+            print('[%s] %s' % (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'Exception occured.'))
         time.sleep(30)
 if __name__ == '__main__':
     run()
