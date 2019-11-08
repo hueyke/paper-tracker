@@ -20,6 +20,6 @@ def run():
             previousStatus = status
         except:
             print('[%s] %s' % (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'Exception occured.'))
-        time.sleep(30)
+        time.sleep(300)
 if __name__ == '__main__':
     run()
