@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import print_function
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 import auth
 
 def getName():
@@ -9,10 +8,18 @@ def getName():
 
 def getArticleStatus():
     url = 'https://mc.manuscriptcentral.com/gji'
-    chrome_options = Options()
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--window-size=720,480')
-    driver = webdriver.Chrome(options=chrome_options)
+    options = webdriver.ChromeOptions()
+    options.add_argument('--window-size=1920,1080')
+    options.add_argument('--disable-extensions')
+    options.add_argument("--proxy-server='direct://'")
+    options.add_argument('--proxy-bypass-list=*')
+    options.add_argument('--start-maximized')
+    options.add_argument('--headless')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--ignore-certificate-errors')
+    driver = webdriver.Chrome(options=options)
     driver.get(url)
     driver.find_element_by_id('USERID').send_keys(auth.getGJIUsername())
     driver.find_element_by_id('PASSWORD').send_keys(auth.getGJIPassword())
