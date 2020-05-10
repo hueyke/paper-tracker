@@ -1,4 +1,5 @@
 # paper-tracker
+Currently supports Nature, Science, Geophysical Research Letter, and Geophysical Journal International. 
 
 ## Run in background on GNU screen
 ```
