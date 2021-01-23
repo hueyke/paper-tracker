@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import gji as journal
+import science as journal
 import gmail
 import time
 from datetime import datetime
