@@ -4,6 +4,9 @@ import requests
 import json
 import auth
 
+def getName():
+    return 'Science'
+
 def getArticleStatus():
     with requests.Session() as session:
         res = session.post(
